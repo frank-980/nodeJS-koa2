@@ -1,0 +1,31 @@
+module.exports={
+    //用户名重复
+    nameRepeat:{
+        errorCode:1000,
+        message:"用户名重复"
+    },
+    //注册失败
+    registerFail:{
+        errorCode:1001,
+        message:"注册失败"
+    },
+    //数据校验失败
+    jsonFail:{
+        errorCode:1002,
+        message:"数据格式校验失败"
+    },
+    //密码错误
+    passwordIncorrect:{
+        errorCode:1003,
+        message:"密码错误"
+    },
+    //未登陆
+    loginCheckFail:{
+        errorCode:1004,
+        message:"您尚未登陆"
+    },
+    createBlogFail:{
+        errorCode:1005,
+        message:"创建失败"
+    }
+}

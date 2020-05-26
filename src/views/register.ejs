@@ -1,0 +1,45 @@
+用户<input id="userName"/><span id="span"></span><br>
+密码<input id="password"/><br>
+重复密码<input id="passwordRepeat"/><br>
+<select id="gender">
+    <option value=1>man</option>
+    <option value=2>woman</option>
+    <option value=3>secret</option>
+    </select>
+<button id='btn'>注册</button>
+<a href="/login">已有帐号,去登陆</a>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script>
+   $("#span").hide()
+    $("#userName").bind('input propertychange',function(){
+        $.ajax({
+            type: 'POST',
+            url: '/api/user/isExist',
+            data: {userName:$("#userName").val()},
+            success: function(res){
+                $("#span").show()
+                console.log(res)
+                if(res.errCode==0){
+                    //可以注册
+                    $("#span").text('可以注册')
+                }else{
+                    $("#span").text('用户名重复')
+                }
+            },
+        });
+    })
+    $("#btn").on('click',function(){
+        $.ajax({
+            type: 'POST',
+            url: '/api/user/register',
+            data: {
+                userName:$("#userName").val(),
+                password:$("#password").val(),
+                gender:$("#gender").val()
+            },
+            success: function(res){
+                console.log(res)
+            },
+        });
+    })
+</script>
