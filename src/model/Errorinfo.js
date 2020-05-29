@@ -27,5 +27,14 @@ module.exports={
     createBlogFail:{
         errorCode:1005,
         message:"创建失败"
-    }
+    },
+    
+    selectBlogFail:{
+        errorCode:1006,
+        message:"获取列表失败"
+    },
+    deleteBlogFail:{
+        errorCode:1007,
+        message:"删除消息失败"
+    },
 }

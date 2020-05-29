@@ -23,10 +23,10 @@ async function register_Ctrl({userName,password,gender}){
             password:crypto(password),
             gender,
         })
-        return SuccessModel()
+        return new SuccessModel()
     } catch(e){
         console.log(e)
-        return FailModel(registerFail.errorCode,registerFail.message)
+        return new FailModel(registerFail.errorCode,registerFail.message)
     }
 }
 async function login_Ctrl(ctx,userName,password){
@@ -38,8 +38,13 @@ async function login_Ctrl(ctx,userName,password){
         return new FailModel(passwordIncorrect.errorCode, passwordIncorrect.message)
     }
 }
+async function logout_Ctrl(ctx){
+    delete ctx.session.userInfo;
+    return new SuccessModel()
+}
 module.exports={
     isExist_Ctrl,
     register_Ctrl,
-    login_Ctrl
+    login_Ctrl,
+    logout_Ctrl
 };

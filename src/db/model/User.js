@@ -31,7 +31,9 @@ const User = seq.define('user',{
     },
     city:{
         type:STRING,
-        
+    },
+    email:{
+        type:STRING,
     }
 })
 module.exports = User

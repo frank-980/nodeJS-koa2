@@ -12,20 +12,20 @@
   <%-include('widgets/user-info',{isFollow})%>
 
 
-
+ 
 内容<input id="content"/><br>
-    <button id="btn">登陆</button>
+    <button id="btn">查询2</button>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
     $("#btn").on('click',function(){
         $.ajax({
             type: 'POST',
-            url: '/api/blog/createBlog',
+            url: '/api/blog/getList',
             data: {
-                content:$("#content").val(),
+                pageIndex:1
             },
             success: function(res){
-                console.log(res)
+                console.log(res.data)
             },
         });
     })

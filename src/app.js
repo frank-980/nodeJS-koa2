@@ -20,7 +20,8 @@ const user = require('./routes/view/user')
 //API ROUTER
 const API_user = require('./routes/api/user');
 const API_createBlog=require('./routes/api/createBlog');
-const API_getBlogList = require("./routes/api/getBlogList")
+const API_getBlogList = require("./routes/api/getList")
+const API_deleteBlogList = require("./routes/api/deleteBlog")
 // error handler
 let ERROR_CONF={
   redirect:'/error'
@@ -32,7 +33,16 @@ if(isProd){
 }
 onerror(app,{ERROR_CONF})
 //跨域
-app.use(cors())
+app.use(cors({
+  origin: function(ctx) { //设置允许来自指定域名请求
+        return 'http://localhost:8080'; // 允许来自所有域名请求
+},
+exposeHeaders: ['Set-Cookie'],
+credentials: true, //是否允许发送Cookie
+allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Date','content-type','Set-Cookie'],
+  
+}))
 //jwt加密
 /*app.use(jwtKoa({
   secret:'ad122@#@4_ASD'
@@ -62,7 +72,8 @@ app.use(session({
   profix:'weibo:sess',
   cookie:{
     path: '/',
-    httpOnly: true,
+    httpOnly: false,
+    SameSite:"None",
     maxAge: 24 * 60 * 60 * 1000,
   },
   store:redisStore({
@@ -78,6 +89,8 @@ app.use(user.routes(), user.allowedMethods())
 app.use(API_user.routes(), API_user.allowedMethods())
 app.use(API_createBlog.routes(), API_createBlog.allowedMethods())
 app.use(API_getBlogList.routes(), API_getBlogList.allowedMethods())
+app.use(API_deleteBlogList.routes(), API_deleteBlogList.allowedMethods())
+
 //404
 app.use(errorRouter.routes(),errorRouter.allowedMethods)
 // error-handling

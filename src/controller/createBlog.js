@@ -1,6 +1,6 @@
 const {SuccessModel,FailModel} = require("../model/ResModel");
 const {createBlogFail} = require("../model/Errorinfo");
-const {createBlog} = require("../services/createBlog");
+const {createBlog} = require("../services/Blog");
 async function createBlog_Ctrl(userId,content){
     try{
         const data = await createBlog(userId,content)

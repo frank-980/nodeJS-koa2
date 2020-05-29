@@ -1,6 +1,7 @@
 const {SuccessModel,FailModel}=require('../model/ResModel');
 const {loginCheckFail}=require('../model/Errorinfo');
 async function loginMiddleWare_api(ctx,next){
+    //const cookie = ctx.request.header.cookie.split("weibo.sid=")[1]
     const session = ctx.session.userInfo;
     if(session){
         await next();
