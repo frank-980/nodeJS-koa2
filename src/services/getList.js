@@ -23,6 +23,7 @@ async function selectBlog(pageIndex){
             ]
         }]
     })
+    const dataLength = data.count
     let blogList = data.rows.map(item=>item.dataValues);
     blogList = blogList.map(item=>{
         const {picture,userName} = item.user.dataValues;
@@ -31,6 +32,6 @@ async function selectBlog(pageIndex){
         delete item.user
         return item;
     })
-    return {blogList:blogList,count:data.count};
+    return {blogList:blogList,count:dataLength};
 }
 module.exports=selectBlog
