@@ -10,10 +10,10 @@
 ## 项目架构
 
 架构图：
-![服务层→控制层→路由层→API](https://raw.githubusercontent.com/hongmaju/light7Local/master/img/productShow/20170518152848.png)
+![服务层→控制层→路由层→API](https://raw.githubusercontent.com/frank-980/nodeJS-koa2/master/frameDesign.png)
 
 数据库EL关系图：
-![EL关系图](https://raw.githubusercontent.com/hongmaju/light7Local/master/img/productShow/20170518152848.png)
+![EL关系图](https://raw.githubusercontent.com/frank-980/nodeJS-koa2/master/dbModel.png)
 
 ## 技术栈
 - [x] Koa2
@@ -25,7 +25,7 @@
 
   **下载源码** 
 
-    git clone https://github.com/frank-980/API_server.git
+    git clone https://github.com/frank-980/nodeJS-koa2.git
 
   **安装服务**
 
