@@ -33,9 +33,14 @@ if(isProd){
 }
 onerror(app,{ERROR_CONF})
 //跨域
+const ENV=process.env.NODE_ENV;
+const url = 'http://localhost:81'
+/*if(ENV=='production'){
+  url='http://319e6e2609.qicp.vip'
+}*/
 app.use(cors({
   origin: function(ctx) { //设置允许来自指定域名请求
-        return 'http://localhost:8080'; // 允许来自所有域名请求
+        return url; 
 },
 exposeHeaders: ['Set-Cookie'],
 credentials: true, //是否允许发送Cookie
