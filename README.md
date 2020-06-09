@@ -11,11 +11,11 @@
 
   ### 项目架构图：
 
-![服务层→控制层→路由层→API](http://47.97.231.138:8090/image/frameDesign.png)
+![服务层→控制层→路由层→API](https://raw.githubusercontent.com/frank-980/nodeJS-koa2/master/frameDesign.png)
 
   ### 数据库EL关系图：
 
-![EL关系图](http://47.97.231.138:8090/image/dbModel.png)
+![EL关系图](https://raw.githubusercontent.com/frank-980/nodeJS-koa2/master/dbModel.png)
 
 ## 技术栈
 - [x] Koa2
