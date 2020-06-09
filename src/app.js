@@ -34,7 +34,7 @@ if(isProd){
 onerror(app,{ERROR_CONF})
 //跨域
 const ENV=process.env.NODE_ENV;
-const url = 'http://localhost:81'
+const url = 'http://319e6e2609.qicp.vip'
 /*if(ENV=='production'){
   url='http://319e6e2609.qicp.vip'
 }*/
